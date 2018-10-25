@@ -59,12 +59,12 @@ const insertDocuments = (database, callback) => {
         {a: 1},
         {a: 2},
         {a: 3}
-    ], (err, result) => {
-        assert.equal(err, null);
+    ], (err, result) => { // this is the callback function; err is where first param is always err; check for error right away then do something, but if not, w/e
+        assert.equal(err, null); // null is absence of obj; if err null, no issue
         assert.equal(3, result.result.n);
         assert.equal(3, result.ops.length);
         console.log("Inserted 3 documents into the collection.");
-        callback(result);
+        callback(result); // hey call this function when you're ready since youre doing async stuff; we will give the function and youi do it when you get want 
     });
 };
 
